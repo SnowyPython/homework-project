@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.vatolin.homeworkproject.enums.AccountType;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,5 +29,5 @@ public class Account {
     private AccountType account;
 
     @Column(name = "balance")
-    private Double balance;
+    private BigDecimal balance;
 }

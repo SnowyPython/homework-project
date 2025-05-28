@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -24,7 +25,7 @@ public class Transaction {
     private Account account;
 
     @Column(name = "transaction_sum")
-    private Double transactionSum;
+    private BigDecimal transactionSum;
 
     @Column(name = "transaction_time")
     private LocalDateTime transactionTime;
