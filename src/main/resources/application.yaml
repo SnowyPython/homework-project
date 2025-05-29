@@ -11,3 +11,9 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
+app:
+  limits:
+    method-timeout-ms: 5000
+  cache:
+    ttl-ms: 60000

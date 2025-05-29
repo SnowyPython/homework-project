@@ -2,7 +2,9 @@ package ru.vatolin.homeworkproject.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.vatolin.homeworkproject.aop.annotation.Cached;
 import ru.vatolin.homeworkproject.aop.annotation.LogDataSourceError;
+import ru.vatolin.homeworkproject.aop.annotation.Metric;
 import ru.vatolin.homeworkproject.dto.AccountDto;
 import ru.vatolin.homeworkproject.entity.Account;
 import ru.vatolin.homeworkproject.repository.AccountRepository;
@@ -16,6 +18,8 @@ public class AccountService {
     private final AccountRepository accountRepository;
 
     @LogDataSourceError
+    @Cached
+    @Metric
     public List<AccountDto> getAllAccounts() {
         List<Account> accounts = accountRepository.findAll();
         List<AccountDto> accountDtos = new ArrayList<>();

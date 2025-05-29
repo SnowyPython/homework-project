@@ -2,7 +2,9 @@ package ru.vatolin.homeworkproject.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.vatolin.homeworkproject.aop.annotation.Cached;
 import ru.vatolin.homeworkproject.aop.annotation.LogDataSourceError;
+import ru.vatolin.homeworkproject.aop.annotation.Metric;
 import ru.vatolin.homeworkproject.dto.TransactionDto;
 import ru.vatolin.homeworkproject.entity.Transaction;
 import ru.vatolin.homeworkproject.repository.TransactionRepository;
@@ -16,6 +18,8 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
 
     @LogDataSourceError
+    @Cached
+    @Metric
     public List<TransactionDto> getAllTransactions() {
         List<Transaction> transactions = transactionRepository.findAll();
         List<TransactionDto> transactionDtos = new ArrayList<>();
